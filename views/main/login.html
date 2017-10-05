@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
     <?php include('views/common/style.html'); ?>
-
 </head>
 <body>
     <!-- 登录 -->
@@ -30,25 +29,10 @@
             </form>
         </div>
     </div>
-    <script src="/public/assets/jquery/jquery.min.js"></script>
-    <script src="/public/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script>
-        $("#loginBtn").click(function () {
-          $.ajax({
-            type:'post',
-            url:'/api/login',
-            data:$("#loginForm").serialize(),
-            dataType:'json',
-            success: function (data) {
-              if(data.code==200){
-                //登录成功，跳转页面
-                location.href='/main/index';
-              }
-            }
-          })
+    <?php include('views/common/script.html'); ?>
 
-          return false;
-        })
+    <script>
+        require(['login']);
     </script>
 </body>
 </html>
